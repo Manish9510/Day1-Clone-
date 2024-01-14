@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    lastname: String,
-    firstname: String,
+    lastName: String,
+    firstName: String,
 });
 
 const model = mongoose.model('User', userSchema);
