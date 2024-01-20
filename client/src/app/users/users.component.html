@@ -1,8 +1,6 @@
-First Name : <input [(ngModel)]="newUser.firstName" type="text" /><br />
-Last Name : <input [(ngModel)]="newUser.lastName" type="text" /><br />
-<button (click)="createUser()">Submit</button><br />
 
 <button (click)="getUsers()">Get users</button>
+<button (click)="goToAddUser()">Go to Add Users</button>
 
 <ul>
   @for (user of users; track user._id) {

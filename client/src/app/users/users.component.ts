@@ -1,6 +1,7 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -11,13 +12,12 @@ export class UsersComponent {
 
   users: any = [];
 
-  newUser = {
-    firstName: '',
-    lastName: '',
-  }
+  
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+    ) {}
 
   getUsers() {
     this.http.get('http://localhost:3000/users').subscribe({
@@ -32,19 +32,6 @@ export class UsersComponent {
     })
   }
 
-  createUser() {
-    this.http.post('http://localhost:3000/users', this.newUser).subscribe({
-      next: (res: any) => {
-        console.log(res);
-        this.newUser.firstName = '';
-        this.newUser.lastName = '';
-        this.getUsers();
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    })
-  }
 
   deleteUser(id: any) {
     this.http.delete('http://localhost:3000/users/' + id).subscribe({
@@ -55,4 +42,12 @@ export class UsersComponent {
       },
     });
   }
+
+  goToAddUser() {
+    this.router.navigate(['/createUsers']);
+  }
+
+  // UpdateUser() {
+  //   this.http.post('http://localhost:3000/users').subscribe({})
+  // }
 }
