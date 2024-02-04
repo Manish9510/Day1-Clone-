@@ -1,0 +1,47 @@
+<div class="m-4" style="display: flex;justify-content: end;">
+    <button class="float-end btn btn-primary" (click)="logout()">
+        Logout
+      </button>
+
+    <button class="float-end btn btn-primary" (click)="goToAddEmployee()">
+      Go to Add employee
+    </button>
+  
+    @if(isLoading ==false) {
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (employee of employees; track employee._id) {
+        <tr>
+          <th scope="row">{{ $index + 1 }}</th>
+          <td>{{ employee.firstName }}</td>
+          <td>{{ employee.lastName }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="deleteEmployee(employee._id)">
+              DEL
+            </button>
+          </td>
+          <td>
+            <button
+              [routerLink]="'/edit-employee/' + employee._id"
+              class="btn btn-warning"
+            >
+              Edit
+            </button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    } @else {
+      <h1>...Loading</h1>
+    }
+  </div>

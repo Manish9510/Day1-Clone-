@@ -1,0 +1,16 @@
+<div class="container" style="max-width: 40%">
+    <div class="form-group">
+      <label>Email address</label>
+      <input [(ngModel)]="newUser.email" type="email" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input
+        [(ngModel)]="newUser.password"
+        type="password"
+        class="form-control"
+      />
+    </div>
+    <button (click)="login()" type="submit" class="btn btn-primary">Login</button>
+    <a [routerLink]="['/register']">Click here to register</a>
+  </div>

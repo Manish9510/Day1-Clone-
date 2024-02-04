@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { UsersComponent } from './users/users.component';
+import { EmployeesComponent } from './employees/employees.component';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,4 @@ import { UsersComponent } from './users/users.component';
 })
 export class AppComponent {
 
-  users: any = [];
-
-  
 }
